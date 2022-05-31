@@ -10,10 +10,10 @@
  * Modified for GRBLHAL
  */
 
-#include "erpc_serial_transport.h"
+#include "erpc_grblhal_transport.h"
 
 #include "erpc_message_buffer.h"
-#include "erpc_serial.h"
+#include "erpc_grblhal.h"
 
 #include <cstdio>
 #include <string>

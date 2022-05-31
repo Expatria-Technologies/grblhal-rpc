@@ -18,7 +18,6 @@ static on_execute_realtime_ptr on_execute_realtime;
 
 static const io_stream_t *rpc_stream;
 
-
 // Add info about our plugin to the $I report.
 static void on_report_my_options (bool newopt)
 {
@@ -26,7 +25,7 @@ static void on_report_my_options (bool newopt)
 
     if(!newopt)
         hal.stream.write("[PLUGIN:RPC LED v1.00]" ASCII_EOL);
-        rpc_stream->write("[PLUGIN:RPC LED v1.00]" ASCII_EOL);
+        //rpc_stream->write("[PLUGIN:RPC LED v1.00]" ASCII_EOL);
 }
 
 static void blink_led (sys_state_t state)
@@ -56,8 +55,6 @@ void led_off (uint8_t led){
 
 void example_server(void) {
 
-    rpc_stream = serialInit(115200);
-
     // Initialize server running over IOStream.
     erpc_server_init(
         erpc_transport_grblhal_init(rpc_stream),
@@ -73,6 +70,8 @@ void example_server(void) {
 
 void grbl_rpc_init (void)
 {
+    rpc_stream = serialInit(115200);
+
     // Add info about our plugin to the $I report.
     on_report_options = grbl.on_report_options;
     grbl.on_report_options = on_report_my_options;
@@ -83,5 +82,7 @@ void grbl_rpc_init (void)
 
   gpio_init(8);
   gpio_set_dir(8, GPIO_OUT);
+
+  example_server();
 
 }

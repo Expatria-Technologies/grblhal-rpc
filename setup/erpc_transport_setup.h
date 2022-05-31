@@ -36,6 +36,7 @@ extern "C" {
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <stream.h>
 
 //! @name Transport setup
 //@{

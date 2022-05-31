@@ -43,7 +43,7 @@ int grblhal_setup(io_stream_t *rpc_stream)
     return 0;
 }
 
-int grblhal_set_read_timeoutio_stream_t *rpc_stream, uint8_t vtime, uint8_t vmin)
+int grblhal_set_read_timeoutio_stream_t (io_stream_t *rpc_stream, uint8_t vtime, uint8_t vmin)
 {
     return 0;
 }
@@ -53,8 +53,8 @@ int grblhal_write(io_stream_t *rpc_stream, char *buf, int size)
     uint32_t counter = 0;
 
     while (counter < size){
-        rpc_stream.write_char(buf[counter]);
-        counter++
+        rpc_stream->write_char(buf[counter]);
+        counter++;
     }
     return counter;
 
@@ -69,7 +69,7 @@ int grblhal_read(io_stream_t *rpc_stream, char *buf, int size)
     while (len < size)
     {
         ret = SERIAL_NO_DATA;
-        ret = rpc_stream.read();
+        ret = rpc_stream->read();
         if (ret == -1)
         {
             timeout++;
@@ -87,12 +87,13 @@ int grblhal_read(io_stream_t *rpc_stream, char *buf, int size)
     }
 
     return len;
-#endif
 }
 
 int grblhal_open(io_stream_t *rpc_stream)
 {
     int fd = 0;
+
+    return 0;
 }
 
 int serial_close(io_stream_t *rpc_stream)

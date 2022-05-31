@@ -13,6 +13,7 @@
 #include "erpc_framed_transport.h"
 
 #include <string>
+#include <stream.h>
 
 /*!
  * @addtogroup serial_transport

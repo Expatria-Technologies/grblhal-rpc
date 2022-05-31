@@ -31,7 +31,7 @@ erpc_transport_t erpc_transport_grblhal_init(const io_stream_t *rpc_stream)
     const uint8_t vmin = 1;
 
     g_transport.construct(rpc_stream);
-    if (s_transport->init(vtime, vmin) == kErpcStatus_Success)
+    if (g_transport->init(rpc_stream) == kErpcStatus_Success)
     {
         transport = reinterpret_cast<erpc_transport_t>(g_transport.get());
     }

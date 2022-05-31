@@ -58,5 +58,3 @@ int grblhal_close(io_stream_t *rpc_stream);
 #endif
 
 /*! @} */
-
-#endif
