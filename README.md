@@ -1,2 +1,2 @@
 # grblhal-rpc
-Implementation of eRPC to expose GRBLHAL API
+Implementation of RPC to expose GRBLHAL API
