@@ -35,7 +35,7 @@ static const io_stream_t *grblhal_rpc_stream;
 // Code
 ////////////////////////////////////////////////////////////////////////////////
 
-GRBLHALTransport::GRBLHALTransport(io_stream_t *rpc_stream)
+GRBLHALTransport::GRBLHALTransport(const io_stream_t *rpc_stream)
 {
 }
 

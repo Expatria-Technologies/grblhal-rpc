@@ -15,9 +15,10 @@ ${CMAKE_CURRENT_LIST_DIR}/infra/erpc_server.cpp
 ${CMAKE_CURRENT_LIST_DIR}/infra/erpc_simple_server.cpp
 ${CMAKE_CURRENT_LIST_DIR}/port/erpc_grblhal.cpp
 ${CMAKE_CURRENT_LIST_DIR}/setup/erpc_setup_mbf_dynamic.cpp
+${CMAKE_CURRENT_LIST_DIR}/setup/erpc_setup_mbf_static.cpp
 ${CMAKE_CURRENT_LIST_DIR}/setup/erpc_server_setup.cpp
 ${CMAKE_CURRENT_LIST_DIR}/setup/erpc_setup_grblhal.cpp
-${CMAKE_CURRENT_LIST_DIR}/transports/
+${CMAKE_CURRENT_LIST_DIR}/transports/erpc_grblhal_transport.cpp
 )
 
 target_include_directories(grblhal-rpc INTERFACE 

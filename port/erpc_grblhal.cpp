@@ -43,12 +43,7 @@ int grblhal_setup(io_stream_t *rpc_stream)
     return 0;
 }
 
-int grblhal_set_read_timeoutio_stream_t (io_stream_t *rpc_stream, uint8_t vtime, uint8_t vmin)
-{
-    return 0;
-}
-
-int grblhal_write(io_stream_t *rpc_stream, char *buf, int size)
+int grblhal_write(const io_stream_t *rpc_stream, char *buf, int size)
 {
     uint32_t counter = 0;
 
@@ -60,7 +55,7 @@ int grblhal_write(io_stream_t *rpc_stream, char *buf, int size)
 
 }
 
-int grblhal_read(io_stream_t *rpc_stream, char *buf, int size)
+int grblhal_read(const io_stream_t *rpc_stream, char *buf, int size)
 {
     int len = 0;
     int ret = 0;
@@ -81,6 +76,7 @@ int grblhal_read(io_stream_t *rpc_stream, char *buf, int size)
 
             continue;
         } else{
+            hal.stream.write_char(ret);
             buf[len] = ret;
             len ++;
         }

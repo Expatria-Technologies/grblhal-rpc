@@ -46,12 +46,11 @@
 extern "C" {
 #endif
 
-int grblhal_setup(io_stream_t *rpc_stream);
-int grblhal_set_read_timeout(io_stream_t *rpc_stream, uint8_t vtime, uint8_t vmin);
-int grblhal_write(io_stream_t *rpc_stream, char *buf, int size);
-int grblhal_read(io_stream_t *rpc_stream, char *buf, int size);
-int grblhal_open(io_stream_t *rpc_stream);
-int grblhal_close(io_stream_t *rpc_stream);
+int grblhal_setup(const io_stream_t *rpc_stream);
+int grblhal_write(const io_stream_t *rpc_stream, char *buf, int size);
+int grblhal_read(const io_stream_t *rpc_stream, char *buf, int size);
+int grblhal_open(const io_stream_t *rpc_stream);
+int grblhal_close(const io_stream_t *rpc_stream);
 
 #if __cplusplus
 }
