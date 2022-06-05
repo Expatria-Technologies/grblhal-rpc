@@ -3,11 +3,25 @@
  */
 
 //@outputDir("erpc_outputs") // output directory
-
 program grblhal_rpc; // specify name of output files
 
+//*************DEFINITIONS*******************//
+struct rpc_coolant_state {
+        bool flood;          
+        bool mist;           
+        bool shower;         
+        bool through_spindle;
+};
+
+
+
+//*************FUNCTIONS*******************//
 interface GRBLHALService // cover functions for same topic
 {
     led_on(in uint8 led) -> void
     led_off(in uint8 led) -> void
+
+    //coolant functions
+    get_coolant_state (void) -> rpc_coolant_state
+    
 }

@@ -34,6 +34,8 @@
 #include <grbl/hal.h>
 #include <grbl/platform.h>
 
+#include <erpc_port.h>
+
 #endif
 
 /*!

@@ -2,6 +2,7 @@ add_library(grblhal-rpc INTERFACE)
 
 target_sources(grblhal-rpc INTERFACE
 ${CMAKE_CURRENT_LIST_DIR}/grblhal_rpc.c
+${CMAKE_CURRENT_LIST_DIR}/rpc_wrappers.c
 ${CMAKE_CURRENT_LIST_DIR}/grblhal_rpc_server.cpp
 ${CMAKE_CURRENT_LIST_DIR}/config/
 ${CMAKE_CURRENT_LIST_DIR}/infra/erpc_client_manager.cpp

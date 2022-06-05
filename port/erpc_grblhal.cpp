@@ -38,6 +38,17 @@
 
 #include "erpc_grblhal.h"
 
+void *erpc_malloc(size_t size)
+{
+    void *p = malloc(size);
+    return p;
+}
+
+void erpc_free(void *ptr)
+{
+    free(ptr);
+}
+
 int grblhal_setup(io_stream_t *rpc_stream)
 {
     return 0;
