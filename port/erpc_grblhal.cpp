@@ -76,7 +76,7 @@ int grblhal_read(const io_stream_t *rpc_stream, char *buf, int size)
 
             continue;
         } else{
-            hal.stream.write_char(ret);
+            //hal.stream.write_char(ret);
             buf[len] = ret;
             len ++;
         }

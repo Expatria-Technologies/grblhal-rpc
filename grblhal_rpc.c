@@ -1,6 +1,6 @@
 /*
 
-  my_plugin.c - user defined plugin that blinks the LED on a STM32F411 Blackpill
+  grblhal_rpc.c - Implementation of eRPC for GRBLHAL IOStreams.
 
   Part of grblHAL
 
@@ -9,7 +9,7 @@
 */
 #include "hardware/gpio.h"
 #include "driver.h"
-#include "blink_led_server.h"
+#include "grblhal_rpc_server.h"
 #include <erpc_server_setup.h>
 #include "serial.h"
 #include "usb_serial.h"
@@ -35,23 +35,6 @@ static void on_report_my_options (bool newopt)
         //rpc_stream->write("[PLUGIN:RPC LED v1.00]" ASCII_EOL);
 }
 
-/*static void blink_led (sys_state_t state)
-{
-    static bool led_on = false;
-    static uint32_t ms = 0;
-
-    if(hal.get_elapsed_ticks() >= ms) {
-        ms = hal.get_elapsed_ticks() + 500; //ms
-        led_on = !led_on;
-        if(led_on)
-            gpio_put(8, 1);
-        else
-            gpio_put(8, 0);
-    }
-
-    on_execute_realtime(state);
-}*/
-
 void led_on (uint8_t led){
     gpio_put(8, 0);
 }
@@ -68,7 +51,7 @@ static void erpc_server_function (sys_state_t state){
     on_execute_realtime(state);
 }
 
-void example_server(void) {
+void grblhal_rpc_server(void) {
 
     // Initialize server running over IOStream.
     erpc_server_init(
@@ -76,7 +59,7 @@ void example_server(void) {
         erpc_mbf_dynamic_init());
 
     // Add the IO service.
-    erpc_add_service_to_server(create_LEDBlinkService_service());
+    erpc_add_service_to_server(create_GRBLHALService_service());
 }
 
 
@@ -93,7 +76,7 @@ void grbl_rpc_init (void)
     gpio_set_dir(8, GPIO_OUT);
     gpio_put(8, 1);
 
-    example_server();
+    grblhal_rpc_server();
 
     // Add erpc function to grblHAL foreground process
     on_execute_realtime = grbl.on_execute_realtime;

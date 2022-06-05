@@ -1,0 +1,13 @@
+/*!
+ * Implementation of eRPC for GRBLHAL IOStreams.
+ */
+
+//@outputDir("erpc_outputs") // output directory
+
+program grblhal_rpc; // specify name of output files
+
+interface GRBLHALService // cover functions for same topic
+{
+    led_on(in uint8 led) -> void
+    led_off(in uint8 led) -> void
+}

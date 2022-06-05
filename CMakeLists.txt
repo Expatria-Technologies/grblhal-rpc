@@ -1,8 +1,8 @@
 add_library(grblhal-rpc INTERFACE)
 
 target_sources(grblhal-rpc INTERFACE
-${CMAKE_CURRENT_LIST_DIR}/grbl_rpc.c
-${CMAKE_CURRENT_LIST_DIR}/blink_led_server.cpp
+${CMAKE_CURRENT_LIST_DIR}/grblhal_rpc.c
+${CMAKE_CURRENT_LIST_DIR}/grblhal_rpc_server.cpp
 ${CMAKE_CURRENT_LIST_DIR}/config/
 ${CMAKE_CURRENT_LIST_DIR}/infra/erpc_client_manager.cpp
 ${CMAKE_CURRENT_LIST_DIR}/infra/erpc_basic_codec.cpp
