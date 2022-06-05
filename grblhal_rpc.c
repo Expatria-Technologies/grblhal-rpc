@@ -6,14 +6,18 @@
 
   Public domain
 
-  Use this command to generate the shim code:
+  Use this command to generate the shim code when the IDL is changed:
   erpcgen -g c grblhal-rpc.erpc
 
   Use this command to generate the Python shim code:
-  erpcgen -g py -o grblhal_python led-service.erpc
+  erpcgen -g py -o grblhal_python grblhal-rpc.erpc
 
+exec(open("./grblhal_test_client").read())
 
 */
+
+//#define ERPC_ALLOCATION_POLICY ERPC_ALLOCATION_POLICY_STATIC
+
 #include "hardware/gpio.h"
 #include "driver.h"
 #include "serial.h"
@@ -76,6 +80,10 @@ void grbl_rpc_init (void)
     // Add info about our plugin to the $I report.
     on_report_options = grbl.on_report_options;
     grbl.on_report_options = on_report_my_options;
+
+    gpio_init(8);
+    gpio_set_dir(8, GPIO_OUT);
+    gpio_put(8, 1);
 
     grblhal_rpc_server();
 

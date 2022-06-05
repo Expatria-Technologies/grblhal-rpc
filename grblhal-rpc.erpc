@@ -6,11 +6,12 @@
 program grblhal_rpc; // specify name of output files
 
 //*************DEFINITIONS*******************//
-struct rpc_coolant_state {
-        bool flood;          
-        bool mist;           
-        bool shower;         
-        bool through_spindle;
+
+struct rpc_coolant_state_t {
+        uint8 flood;
+        uint8 mist;
+        uint8 shower;
+        uint8 through_spindle;                  
 };
 
 
@@ -22,6 +23,8 @@ interface GRBLHALService // cover functions for same topic
     led_off(in uint8 led) -> void
 
     //coolant functions
-    get_coolant_state (void) -> rpc_coolant_state
+    rpc_get_coolant_state (void) -> rpc_coolant_state_t
+
+    rpc_get_integer (void) -> uint8
     
 }

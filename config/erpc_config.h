@@ -70,7 +70,7 @@
 //! supported by compiler. Uncomment comment bellow to use static allocation policy. In case of static implementation
 //! user need consider another values to set (ERPC_CODEC_COUNT, ERPC_MESSAGE_LOGGERS_COUNT,
 //! ERPC_CLIENTS_THREADS_AMOUNT).
-// #define ERPC_ALLOCATION_POLICY (ERPC_ALLOCATION_POLICY_STATIC)
+#define ERPC_ALLOCATION_POLICY (ERPC_ALLOCATION_POLICY_STATIC)
 
 //! @def ERPC_CODEC_COUNT
 //!

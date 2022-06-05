@@ -48,6 +48,9 @@
 extern "C" {
 #endif
 
+
+void *erpc_malloc(size_t size);
+void erpc_free(void *ptr);
 int grblhal_setup(const io_stream_t *rpc_stream);
 int grblhal_write(const io_stream_t *rpc_stream, char *buf, int size);
 int grblhal_read(const io_stream_t *rpc_stream, char *buf, int size);

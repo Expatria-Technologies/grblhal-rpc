@@ -15,6 +15,7 @@
 
 #include <new>
 #include <stdint.h>
+#include "erpc_port.h"
 
 /*!
  * @addtogroup infra_utility

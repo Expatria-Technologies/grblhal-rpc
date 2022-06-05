@@ -27,14 +27,6 @@
 //#include <unistd.h>
 #include <errno.h>
 #include <string.h>
-/*included this here for cygwin. need to figure out proper include handling for cygwin */
-//#include <termios.h>
-
-//#define LINUX 1
-//#ifdef LINUX
-//#include <termios.h>
-//#endif
-// included from serial.h
 
 #include "erpc_grblhal.h"
 
@@ -49,10 +41,12 @@ void erpc_free(void *ptr)
     free(ptr);
 }
 
+
 int grblhal_setup(io_stream_t *rpc_stream)
 {
     return 0;
 }
+
 
 int grblhal_write(const io_stream_t *rpc_stream, char *buf, int size)
 {
